@@ -4,33 +4,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+
     <link rel="stylesheet" href="./css/main.css">
-    <title>Simple Modern</title>
+    <link rel="icon" type="image/x-icon" href="./assets/img/favicon.png">
+
+    <title>Monticello</title>
 </head>
 
 <body>
-    <header>
-        <nav>
-            <a href=""><img src="./assets/img/Logo.png" alt="Logo"></a>
-            <ul>
-                <li><a href="">ABOUT US</a></li>
-                <li><a href="">PROJECTS</a></li>
-                <li><a href="">NEWS</a></li>
-                <li><a href="">CONTACT</a></li>
-            </ul>
-        </nav>
+    <header class="header">
+        <div class="container">
+            <div class="header__container">
+                <nav class="header__nav nav">
+                    <a href="#" class="header__logo logo">
+                        <svg width="241" height="54" class="logo__icon">
+                            <use xlink:href="./assets/img/svg/Logo.svg"></use>
+                        </svg>
+                    </a>
+                    <input type="checkbox" id="nav-burger" class="nav__burger burger">
+                    <label for="nav-burger" class="burger__img"></label>
+
+                    <ul class="header__menu menu">
+                        <li class="header__menu-item">
+
+                            <a class="header__menu-link" href="#about">ABOUT US</a>
+                        </li>
+                        <li class="header__menu-item"><a class="header__menu-link" href="#projects">PROJECTS</a></li>
+                        <li class="header__menu-item"><a class="header__menu-link" href="#news">NEWS</a></li>
+                        <li class="header__menu-item"><a class="header__menu-link" href="#contact">CONTACT</a></li>
+                    </ul>
+
+                </nav>
+                <ul class="header__social social">
+                    <li class="header__social-item"><a href="#" class="header__social-link">
+                            <svg width="10" height="18" class="header__social-icon">
+                                <use xlink:href="./assets/img/svg/sprite.svg#icon-facebook"></use>
+                            </svg>
+                        </a></li>
+                    <li class="header__social-item"><a href="#" class="header__social-link"><svg width="18" height="15"
+                                class="header__social-icon">
+                                <use xlink:href="./assets/img/svg/sprite.svg#icon-twitter"></use>
+                            </svg></a></li>
+                    <li class="header__social-item"><a href="#" class="header__social-link"><svg width="16" height="16"
+                                class="header__social-icon">
+                                <use xlink:href="./assets/img/svg/sprite.svg#icon-instagram"></use>
+                            </svg></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="slider">
+            <div class="slider-slide">
+                <div class="slider__content sl_content">
+                    <h1 class="sl_content_title">SIMPLE & MODERN</h1>
+                    <h2 class="sl_content_subtitle">WE MAKE THE WORLD BEAUTIFUL EVERYDAY</h2>
+
+                </div>
+                <img src="./assets/img/background_header_1.jpg" alt="" class="slider-slide__img">
+            </div>
+            <div class="slider-slide">
+                <div class="slider__content sl_content">
+                    <img src="./assets/img/background_header_2.jpg" alt="" class="slider-slide__img">
+                </div>
+            </div>
+            <div class="slider-slide">
+                <div class="slider__content sl_content">
+                    <img src="./assets/img/background_header_3.jpg" alt="" class="slider-slide__img">
+                </div>
+            </div>
+            <div class="slider-slide">
+                <div class="slider__content sl_content">
+                    <img src="./assets/img/background_header_4.jpg" alt="" class="slider-slide__img">
+                </div>
+            </div>
+        </div>
     </header>
     <main>
-        <section></section>
-        <section></section>
-        <section></section>
-        <section></section>
-        <section></section>
+        <section id="about">
+            <div class="container">
+                <h2>WHAT WE DO</h2>
+            </div>
+        </section>
+        <section id="projects">
+            <div class="container">
+                <h2>PROJECTS</h2>
+            </div>
+        </section>
+        <section id="news">
+            <div class="container">
+                <h2>NEWS</h2>
+            </div>
+        </section>
+        <section id="contact">
+            <div class="container">
+                <h2>CONTACT</h2>
+            </div>
+        </section>
     </main>
     <footer>
     </footer>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="js/slick-slider.js"></script>
+    <script src="js/main.js"></script>
 
 </body>
+<!-- 
+          https://maps.googleapis.com/maps/api/staticmap?key=YOUR_API_KEY&center=47.65,-122.35&zoom=12&format=png&maptype=roadmap&style=element:geometry%7Ccolor:0xf5f5f5&style=element:labels.icon%7Cvisibility:off&style=element:labels.text.fill%7Ccolor:0x616161&style=element:labels.text.stroke%7Ccolor:0xf5f5f5&style=feature:administrative.land_parcel%7Celement:labels.text.fill%7Ccolor:0xbdbdbd&style=feature:poi%7Celement:geometry%7Ccolor:0xeeeeee&style=feature:poi%7Celement:labels.text.fill%7Ccolor:0x757575&style=feature:poi.park%7Celement:geometry%7Ccolor:0xe5e5e5&style=feature:poi.park%7Celement:labels.text.fill%7Ccolor:0x9e9e9e&style=feature:road%7Celement:geometry%7Ccolor:0xffffff&style=feature:road.arterial%7Celement:labels.text.fill%7Ccolor:0x757575&style=feature:road.highway%7Celement:geometry%7Ccolor:0xdadada&style=feature:road.highway%7Celement:labels.text.fill%7Ccolor:0x616161&style=feature:road.local%7Celement:labels.text.fill%7Ccolor:0x9e9e9e&style=feature:transit.line%7Celement:geometry%7Ccolor:0xe5e5e5&style=feature:transit.station%7Celement:geometry%7Ccolor:0xeeeeee&style=feature:water%7Celement:geometry%7Ccolor:0xc9c9c9&style=feature:water%7Celement:labels.text.fill%7Ccolor:0x9e9e9e&size=480x360
+         -->
 
 </html>

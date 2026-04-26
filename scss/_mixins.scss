@@ -1,0 +1,26 @@
+@use 'vars' as v;
+
+@mixin flex($justify: null, $align: null) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin font_title($font_size, $line_height, $font_weight, $letter_spacing: null) {
+    font-size: $font_size;
+    line-height: $line_height;
+    font-weight: $font_weight;
+    letter-spacing: $letter_spacing;
+}
+
+@mixin pos_center($percentX, $percentY) {
+    left: $percentX;
+    top: $percentY;
+    transform: translateX(-1*$percentX) translateY(-1*$percentY);
+}
+
+@mixin pos_abs($top, $left: null) {
+    position: absolute;
+    top: $top;
+    left: $left;
+}

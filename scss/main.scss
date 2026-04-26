@@ -1,11 +1,184 @@
-*{
+@use 'slider';
+@use 'vars' as v;
+@use 'mixins' as m;
+@import 'extend';
+
+* {
     margin: 0;
     padding: 0;
 }
-ul,ol{
+
+body {
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: v.$color-text;
+
+    font-size: v.$font-size;
+}
+
+main {
+    background-color: v.$color-white;
+    font-family: v.$font-family-main;
+
+}
+
+ul,
+ol {
     list-style: none;
 
 }
-a{
+
+a {
     text-decoration: none;
+}
+
+// img {
+//     width: 100%;
+//     height: 100vh;
+
+// }
+.container {
+    max-width: v.$width-container;
+    margin: 0 auto;
+}
+
+.header {
+    position: relative;
+    background: v.$backgorund-gradient;
+
+    &__container {
+        @include m.flex(space-between, center);
+        z-index: 10;
+
+        position: absolute;
+    }
+
+    &__nav {
+        @include m.flex(space-between, center);
+        margin-top: 53px;
+        margin-bottom: 53px;
+        padding-right: 110px;
+    }
+
+    &__menu {
+        @include m.flex(space-between, center);
+        gap: 70px;
+        padding-left: 144px;
+
+        &-item {
+            position: relative;
+            display: inline-block;
+
+            &::before {
+                content: "";
+                position: absolute;
+                left: -14px;
+                /* Смещаем влево от текста */
+                top: 50%;
+                transform: translateY(-50%);
+                width: 9px;
+                height: 9px;
+                border: 1px solid #ffffff;
+                border-radius: 50%;
+                background: transparent;
+            }
+        }
+
+        &-link {
+            font-family: v.$font-family-menu;
+            font-size: 0.778em;
+            padding-top: 18px;
+            padding-bottom: 18px;
+            color: v.$color-white;
+        }
+    }
+
+    &__social {
+        &-link {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            background-color: transparent;
+            position: relative;
+
+            &:hover,
+            &:focus {
+                cursor: url('../assets/img/cursor.png'), pointer;
+                border:1px solid v.$color-text;
+                .header__social-icon{
+                    fill:v.$color-text;
+                }
+            }
+        }
+
+        &-icon {
+            position: absolute;
+            @include m.pos_center(50%, 50%);
+            fill: v.$color-white;
+          
+        }
+
+    }
+
+}
+
+.social {
+    @include m.flex(space-between, center);
+    gap: 20px;
+}
+
+.burger {
+    display: none;
+
+    @media screen and (max-width:768px) {
+        &:checked~.menu {
+            opacity: 1;
+            right: 0;
+        }
+
+        &:checked~.burger__img {
+            transform: rotate(587deg);
+            transition: all 0.4s;
+
+            &::before {
+                opacity: 0;
+            }
+
+            &::after {
+                top: 0;
+                transform: rotate(90deg);
+            }
+        }
+    }
+
+    &__img {
+        display: none;
+        cursor: pointer;
+
+        @media screen and (max-width:768px) {
+            display: inline-block;
+            position: relative;
+            top: -3px;
+            width: 34px;
+            height: 2px;
+            background-color: v.$color-violet;
+
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background-color: v.$color-violet;
+                top: 10px;
+            }
+
+            &::after {
+                top: -10px;
+            }
+
+        }
+    }
 }

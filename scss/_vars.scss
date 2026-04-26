@@ -1,0 +1,12 @@
+@use 'fonts';
+$font-family-menu: 'Source Sans Pro', sans-serif;
+$font-family-main: 'Open Sans', sans-serif;
+$font-size: 18px;
+$color-white: #ffffff;
+$color-text:#2C4058;
+$color-blue:#55B7FF;
+$color-violet:#7E5AFF;
+$background-white:#ffddff;
+$backgorund-gradient:linear-gradient(to left, $color-violet, $color-blue);
+$backgorund-news:linear-gradient(#24CCFA, #3C7FD4);
+$width-container: 1170px;
