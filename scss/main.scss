@@ -10,7 +10,7 @@
 
 body {
     margin: 0;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: v.$font-family-main;
     color: v.$color-text;
 
     font-size: v.$font-size;
@@ -40,6 +40,16 @@ a {
 .container {
     max-width: v.$width-container;
     margin: 0 auto;
+}
+
+.title {
+    font-family: v.$font-family-title;
+    text-align: center;
+}
+
+.social {
+    @include m.flex(space-between, center);
+    gap: 20px;
 }
 
 .header {
@@ -106,9 +116,10 @@ a {
             &:hover,
             &:focus {
                 cursor: url('../assets/img/cursor.png'), pointer;
-                border:1px solid v.$color-text;
-                .header__social-icon{
-                    fill:v.$color-text;
+                border: 1px solid v.$color-text;
+
+                .header__social-icon {
+                    fill: v.$color-text;
                 }
             }
         }
@@ -117,17 +128,13 @@ a {
             position: absolute;
             @include m.pos_center(50%, 50%);
             fill: v.$color-white;
-          
+
         }
 
     }
 
 }
 
-.social {
-    @include m.flex(space-between, center);
-    gap: 20px;
-}
 
 .burger {
     display: none;
@@ -179,6 +186,67 @@ a {
                 top: -10px;
             }
 
+        }
+    }
+}
+
+.projects {
+    margin-top: 100px;
+    padding-bottom: 150px;
+
+    &_title {
+        position: relative;
+        margin-bottom: 90px;
+
+        &::before {
+            content: '';
+            width: 100px;
+            height: 1px;
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: v.$color-text;
+        }
+    }
+
+    &-item {
+        @include m.flex(space-between, center);
+        gap: 64px;
+
+        &:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+    }
+}
+
+.location {
+    &-icon {
+        fill: #000;
+    }
+}
+
+.news {
+    // background: v.$backgorund-news;
+    background-image: url(../assets/img/news_background.png);
+    background-position: center;
+    padding-top: 150px;
+    padding-bottom: 120px;
+
+    &_title {
+        color: v.$color-white;
+margin-bottom: 90px;
+position: relative;
+
+        &::before {
+            content: '';
+            width: 100px;
+            height: 1px;
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: v.$color-white;
         }
     }
 }
