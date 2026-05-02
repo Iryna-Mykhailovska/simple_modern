@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // });
 
 // ==============Form validation
-document.getElementById('feedbackForm').addEventListener('click', function(e) {
+document.getElementById('feedbackForm').addEventListener('submit', function(e) {
   e.preventDefault();
   
   let isValid = true;

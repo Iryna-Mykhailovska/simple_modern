@@ -495,8 +495,9 @@ a {
 .footer {
     background: v.$backgorund-gradient;
     position: relative;
-    &__container{
-        @include m.flex(space-between,center);
+
+    &__container {
+        @include m.flex(space-between, center);
         max-width: 770px;
         margin: 0 auto;
         padding-top: 203px;
@@ -507,15 +508,17 @@ a {
 .contact-section {
     padding-left: 60px;
     padding-right: 60px;
+    padding-top: 90px;
     position: absolute;
-    left:50%;
+    left: 50%;
     transform: translateX(-50%);
     top: -300px;
     z-index: 777;
     font-family: v.$font-family-title;
     color: v.$color-text;
+    
     max-width: 650px;
-    height: 450px;
+    height: 360px;
     margin: 0 auto;
     background-color: v.$color-white;
     // &__container {
@@ -530,23 +533,37 @@ a {
     //     flex-direction: column;
     // }
 
-    &__divider {
-        width: 60px;
-        border: 1px solid v.$color-text;
-        margin-bottom: 20px;
-    }
+    // &__divider {
+    //     width: 60px;
+    //     border: 1px solid v.$color-text;
+    //     margin-bottom: 20px;
+    // }
 
     &__title {
-        font-size: 32px;
+        font-size: 44px;
         font-weight: 700;
-        letter-spacing: 2px;
+        line-height: 1;
+        // letter-spacing: 2px;
         text-transform: uppercase;
+        padding-bottom: 42px;
+        position: relative;
+
+        &:before {
+            content: '';
+            height: 1px;
+            width: 100px;
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: v.$color-text;
+        }
     }
 
     &__content {
         display: flex;
         justify-content: center;
-        gap: 80px;
+        gap: 54px;
         max-width: 900px;
         margin: 0 auto;
         flex-wrap: wrap;
@@ -561,6 +578,7 @@ a {
 .contact-info {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 25px;
     flex: 1;
 
@@ -599,7 +617,9 @@ a {
         width: 100%;
         border-bottom: 1px solid v.$border-color;
         padding: 10px 0;
-        font-size: 16px;
+        font-size: 18px;
+        line-height: 1.5;
+        font-weight: 400;
         color: v.$color-text;
         transition: border-color 0.3s ease;
 
@@ -638,14 +658,15 @@ a {
     &__submit {
         @include m.input-reset;
         border: 1px solid v.$color-text;
-        padding: 12px 45px;
-        font-size: 14px;
-        font-weight: 700;
-        letter-spacing: 1px;
+        padding: 12px 34px;
+        font-size: 18px;
+        line-height: 1.5;
+        font-weight: 400;
+        letter-spacing: 0;
         cursor: pointer;
         float: right;
         transition: all 0.3s ease;
-        margin-top: 10px;
+        // margin-top: 10px;
 
         &:hover {
             background-color: v.$color-text;

@@ -501,6 +501,7 @@ a {
 .contact-section {
   padding-left: 60px;
   padding-right: 60px;
+  padding-top: 90px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -509,25 +510,32 @@ a {
   font-family: "Montserrat", sans-serif;
   color: #2C4058;
   max-width: 650px;
-  height: 450px;
+  height: 360px;
   margin: 0 auto;
   background-color: #ffffff;
 }
-.contact-section__divider {
-  width: 60px;
-  border: 1px solid #2C4058;
-  margin-bottom: 20px;
-}
 .contact-section__title {
-  font-size: 32px;
+  font-size: 44px;
   font-weight: 700;
-  letter-spacing: 2px;
+  line-height: 1;
   text-transform: uppercase;
+  padding-bottom: 42px;
+  position: relative;
+}
+.contact-section__title:before {
+  content: "";
+  height: 1px;
+  width: 100px;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2C4058;
 }
 .contact-section__content {
   display: flex;
   justify-content: center;
-  gap: 80px;
+  gap: 54px;
   max-width: 900px;
   margin: 0 auto;
   flex-wrap: wrap;
@@ -542,6 +550,7 @@ a {
 .contact-info {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 25px;
   flex: 1;
 }
@@ -578,7 +587,9 @@ a {
   width: 100%;
   border-bottom: 1px solid #ccc;
   padding: 10px 0;
-  font-size: 16px;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
   color: #2C4058;
   transition: border-color 0.3s ease;
 }
@@ -612,14 +623,14 @@ a {
   outline: none;
   background: none;
   border: 1px solid #2C4058;
-  padding: 12px 45px;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 1px;
+  padding: 12px 34px;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: 0;
   cursor: pointer;
   float: right;
   transition: all 0.3s ease;
-  margin-top: 10px;
 }
 .contact-form__submit:hover {
   background-color: #2C4058;
