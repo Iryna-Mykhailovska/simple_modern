@@ -97,19 +97,21 @@
     </header>
     <main>
 
-        <section id="projects" class="projects">
-            <div class="container">
-                <h2 class="projects_title title">WHAT WE DO</h2>
-                <div class="projects_list">
-                    <article class="projects-item">
-                        <img src="./assets/img/project_1.jpg" alt="Project 1" width="630" height="470">
-                        <div class="content">
-                            <h3 class="content-title title">ONE WORLD</h3>
-                            <h4 class="content-subtitle title">TRADE CENTER</h4>
-                            <p class="content-text">Increasing prosperity in our lives can be accomplished by having the
-                                right frame of mind.
-                                The truth is, our thoughts are very powerful.</p>
-                            <button class="content_btn">MORE DETAILS</button>
+        <section class="projects">
+            <h2 class="projects__title title">What we do</h2>
+
+            <!-- Верхний блок -->
+            <div class="projects__item projects__item--blue js-scroll-item">
+                <div class="projects__container">
+                    <div class="projects__image-wrapper">
+                        <img src="./assets/img/project_1.jpg" alt="Trade Center" class="projects__image">
+
+                        <div class="projects__content">
+                            <h3 class="projects__content__title title">One World</h3>
+                            <h4 class="projects__content__subtitle">Trade Center</h4>
+                            <p class="projects__content__text">Increasing prosperity in our lives can be accomplished by
+                                having the right frame of mind. The truth is, our thoughts are very powerful.</p>
+                            <button class="projects__content__btn btn">More details</button>
                             <div class="location">
                                 <svg width="9" height="17" class="location-icon">
                                     <use xlink:href="/assets/img/svg/sprite.svg#icon-map_contacts"></use>
@@ -117,15 +119,23 @@
                                 <p class="location-text">New York City, United States - 1776 feet </p>
                             </div>
                         </div>
-                    </article>
-                    <article class="projects-item">
-                        <img src="./assets/img/project_2.jpg" alt="Project 2" width="630" height="470">
-                        <div class="content">
-                            <h3 class="content-title title">INTERNATIONAL</h3>
-                            <h4 class="content-subtitle title">COMMERCE CENTRE</h4>
-                            <p class="content-text">Successful businesses have many things in common, today we’ll look
-                                at the big ‘R’ of recognition and how a digital advertising network may help.</p>
-                            <button class="content_btn">MORE DETAILS</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Нижний блок -->
+            <div class="projects__item projects__item--purple js-scroll-item">
+                <div class="projects__container">
+                    <div class="projects__image-wrapper projects__image-wrapper--reverse">
+                        <img src="./assets/img/project_2.jpg" alt="Commerce Centre" class="projects__image">
+
+                        <div class="projects__content">
+                            <h3 class="projects__content__title title">International</h3>
+                            <h4 class="projects__content__subtitle">Commerce Centre</h4>
+                            <p class="projects__content__text">Successful businesses have many things in common, today
+                                we’ll look at the big ‘R’ of recognition and how a digital advertising network may help.
+                            </p>
+                            <button class="projects__content__btn btn">More details</button>
                             <div class="location">
                                 <svg width="9" height="17" class="location-icon">
                                     <use xlink:href="/assets/img/svg/sprite.svg#icon-map_contacts"></use>
@@ -133,8 +143,7 @@
                                 <p class="location-text">Hong Kong - 1588 feet</p>
                             </div>
                         </div>
-
-                    </article>
+                    </div>
                 </div>
             </div>
         </section>
@@ -194,10 +203,23 @@
                 </div>
             </div>
         </section>
-        <section id="gallery" class="gallery">
+        <section id="gallery" class="section-gallery">
             <div class="container">
                 <h2 class="gallery_title title">GALLERY</h2>
-                <div class="gallery__grid">
+                <div class="gallery gallery__grid">
+                    <a class="gallery__item--big" href="./assets/img/gallery_1.jpg"><img
+                            src="./assets/img/thumbs/thumb1.jpg" alt="" title="" /></a>
+                    <a class="gallery__item" href="./assets/img/gallery_2.jpg"><img src="./assets/img/thumbs/thumb2.jpg"
+                            alt="" title="Beautiful Image" /></a>
+                    <a class="gallery__item" href="./assets/img/gallery_3.jpg"><img src="./assets/img/thumbs/thumb3.jpg"
+                            alt="" title="Beautiful Image" /></a>
+                    <a class="gallery__item" href="./assets/img/gallery_4.jpg"><img src="./assets/img/thumbs/thumb4.jpg"
+                            alt="" title="Beautiful Image" /></a>
+                    <a class="gallery__item" href="./assets/img/gallery_5.jpg"><img src="./assets/img/thumbs/thumb5.jpg"
+                            alt="" title="Beautiful Image" /></a>
+
+                </div>
+                <!-- <div class="gallery__grid"> 
                     <div class="gallery__item gallery__item--big">
                         <img src="./assets/img/gallery_1.jpg" alt="Architecture 1">
                     </div>
@@ -213,8 +235,8 @@
                     <div class="gallery__item">
                         <img src="./assets/img/gallery_5.jpg" alt="Architecture 5">
                     </div>
-                </div>
-                <button class="gallery__btn">SEE MORE</button>
+                </div>  -->
+                <button class="gallery__btn btn">SEE MORE</button>
             </div>
             </div>
         </section>

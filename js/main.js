@@ -1,4 +1,29 @@
 'use strict';
+
+document.addEventListener('DOMContentLoaded', () => {
+  const options = {
+    root: null, // следим относительно вьюпорта
+    threshold: 0.2 // сработает, когда 20% блока будет видно
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Добавляем класс, который запускает CSS-анимацию
+        entry.target.classList.add('is-visible');
+        // Если хотим, чтобы анимация была единоразовой:
+        observer.unobserve(entry.target);
+      }
+    });
+  }, options);
+
+  // Инициализируем наблюдение за всеми нужными блоками
+  const scrollItems = document.querySelectorAll('.js-scroll-item');
+  scrollItems.forEach(item => {
+    observer.observe(item);
+  });
+});
+
 // $(document).ready(function(){
 //   $('.slider').slick({
 //     dots: true,
@@ -9,6 +34,13 @@
 //     autoplay: true
 //   });
 // });
+// --------------Buttons------
+const buttonMore = document.getElementById('project_1');
+buttonMore.addEventListener('click', () => {
+
+  alert('More details about project 1');
+});
+// --------------------MAP
 // 1. Инициализируем карту, указываем ID блока и координаты центра [широта, долгота], а также масштаб (13)
 var map = L.map('map').setView([50.069358, 36.204282], 13); 
 
@@ -16,7 +48,7 @@ var map = L.map('map').setView([50.069358, 36.204282], 13);
 // OpenStreetMap — самый популярный бесплатный вариант.
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    attribution: '© OpenStreetMap contributors'
+    // attribution: '© OpenStreetMap contributors'
 }).addTo(map);
 var myCustomIcon = L.icon({
     iconUrl: '../assets/img/Pin.png',    // Путь к вашему файлу
@@ -30,4 +62,4 @@ var marker = L.marker([50.069358, 36.204282], { icon: myCustomIcon }).addTo(map)
 // 4. Добавляем всплывающее окно при клике на маркер
 marker.bindPopup("<b>Привет!</b><br>Я здесь!").openPopup();
 
-// 50.069358, 36.204282
+

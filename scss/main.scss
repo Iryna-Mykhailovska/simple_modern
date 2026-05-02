@@ -12,7 +12,6 @@ body {
     margin: 0;
     font-family: v.$font-family-main;
     color: v.$color-text;
-
     font-size: v.$font-size;
 }
 
@@ -32,11 +31,6 @@ a {
     text-decoration: none;
 }
 
-// img {
-//     width: 100%;
-//     height: 100vh;
-
-// }
 .container {
     max-width: v.$width-container;
     margin: 0 auto;
@@ -45,6 +39,15 @@ a {
 .title {
     font-family: v.$font-family-title;
     text-align: center;
+    text-transform: uppercase;
+}
+
+.btn {
+    @extend %btn-base;
+
+    &:hover {
+        @extend %btn-elevation;
+    }
 }
 
 .social {
@@ -190,13 +193,72 @@ a {
     }
 }
 
+// .projects {
+//     margin-top: 100px;
+//     padding-bottom: 150px;
+//     position: relative;
+
+//     &-blue {
+//         position: absolute;
+//         top: 174px;
+
+//         left: 0;
+//         width: 585px;
+//         height: 470px;
+//         background-color: #55B7FF;
+//     }
+
+//    
+
+//     &_list {
+//         @include m.flex(space-between, center);
+//         flex-wrap: wrap;
+//         gap: 120px;
+//     }
+
+//     &-item {
+//         @include m.flex(space-between, center);
+//         gap: 64px;
+//         z-index: 99;
+//         position: relative;
+//         top: 100px;
+
+//         &:nth-child(even) {
+//             flex-direction: row-reverse;
+//         }
+//     }
+
+//     &-content {
+//         font-family: v.$font-family-main;
+//         width: 470px;
+//         height: 350px;
+
+//         &-title {
+//             font-size: 22px;
+//             text-align: left;
+//             font-weight: 400;
+//         }
+
+//         &-subtitle {
+//             font-size: 44px;
+//             text-align: left;
+//             font-weight: 700;
+//             padding-bottom: 19px;
+//         }
+
+//         &-text {
+//             line-height: 1.667;
+//             margin-bottom: 40px;
+//         }
+
+// }
 .projects {
     margin-top: 100px;
     padding-bottom: 150px;
 
-    &_title {
+    &__title {
         position: relative;
-
+        padding-bottom: 90px;
 
         &::before {
             content: '';
@@ -210,19 +272,125 @@ a {
         }
     }
 
-    &-item {
-        @include m.flex(space-between, center);
-        gap: 64px;
+    &__item {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 57px;
 
-        &:nth-child(even) {
-            flex-direction: row-reverse;
+        // Цветные подложки через псевдоэлементы
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 585px;
+            height: 470px; // Высота цветного поля
+            z-index: 1;
+        }
+
+        &--blue::before {
+            left: 0;
+            background-color: #55B7FF;
+            margin-bottom: 63px;
+        }
+
+        &--purple::before {
+            right: 0;
+            background-color: #7E5AFF;
+        }
+
+        // &--reverse {
+        //     .projects__container {
+        //         flex-direction: row-reverse;
+        //     }
+        // }
+       
+    }
+
+    &__container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        max-width: v.$width-container;
+        z-index: 2;
+        // padding: 0 20px;
+        
+    }
+
+    &__image-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 70px;
+        flex: 1;
+        // Начальное состояние для анимации
+        opacity: 0;
+        transform: translateX(-50px) translateY(0);
+
+        transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.8s ease;
+
+        // Класс, который добавит JS
+        .is-visible & {
+            opacity: 1;
+            transform: translateX(0) translateY(57px);
+        }
+        &--reverse {
+           
+                flex-direction: row-reverse;
+            
+        }
+    }
+
+    &__image {
+        width: 630px;
+        height: 470px;
+        display: block;
+        // box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    &__content {
+        flex: 1;
+        // padding: 40px;
+        font-family: v.$font-family-main;
+        width: 470px;
+        height: 350px;
+
+        &__title {
+            font-size: 22px;
+            text-align: left;
+            font-weight: 400;
+        }
+
+        &__subtitle {
+            font-size: 44px;
+            text-align: left;
+            font-weight: 700;
+            padding-bottom: 19px;
+        }
+
+        &__text {
+            line-height: 1.667;
+            margin-bottom: 40px;
         }
     }
 }
 
 .location {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    gap: 10px;
+    margin-top: 60px;
+
     &-icon {
+        width: 16px;
+        height: 30px;
         fill: #000;
+    }
+
+    &-text {
+        font-size: 15px;
+        font-style: italic;
+        color: #000;
     }
 }
 
@@ -251,9 +419,13 @@ a {
     }
 }
 
-.gallery {
+.section-gallery {
     padding-top: 150px;
     padding-bottom: 150px;
+}
+
+.gallery {
+
 
     &_title {
         position: relative;
@@ -275,15 +447,19 @@ a {
         display: grid;
         /* Создаем 4 равные колонки и 2 ряда */
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(2, 250px);
+        grid-template-rows: repeat(2, 214px);
         /* Высоту можно настроить */
-        gap: 20px;
+        gap: 10px;
         /* Отступы между фото */
         max-width: 1200px;
-        margin: 0 auto 40px;
+        // margin: 0 auto 40px;
+        margin-bottom: 60px;
     }
 
     &__item {
+        width: 285px;
+        height: 214px;
+
         img {
             width: 100%;
             height: 100%;
@@ -298,22 +474,19 @@ a {
             /* Занимает 1 и 2 колонки */
             grid-row: 1 / 3;
             /* Занимает 1 и 2 ряды */
+            width: 580px;
+            height: 438px;
         }
     }
 
     &__btn {
-        padding: 15px 40px;
-        border: 1px solid #000;
-        background: transparent;
-        cursor: pointer;
-        text-transform: uppercase;
-        font-family: inherit;
-        transition: 0.3s;
+        padding-left: 57px;
+        padding-right: 57px;
 
-        &:hover {
-            background: #000;
-            color: #fff;
-        }
+        margin: 0 auto;
+        display: block;
+
+
     }
 
 }
