@@ -304,7 +304,7 @@ a {
         //         flex-direction: row-reverse;
         //     }
         // }
-       
+
     }
 
     &__container {
@@ -314,7 +314,7 @@ a {
         max-width: v.$width-container;
         z-index: 2;
         // padding: 0 20px;
-        
+
     }
 
     &__image-wrapper {
@@ -333,10 +333,11 @@ a {
             opacity: 1;
             transform: translateX(0) translateY(57px);
         }
+
         &--reverse {
-           
-                flex-direction: row-reverse;
-            
+
+            flex-direction: row-reverse;
+
         }
     }
 
@@ -489,4 +490,171 @@ a {
 
     }
 
+}
+
+.footer {
+    background: v.$backgorund-gradient;
+    position: relative;
+    &__container{
+        @include m.flex(space-between,center);
+        max-width: 770px;
+        margin: 0 auto;
+        padding-top: 203px;
+        padding-bottom: 234px;
+    }
+}
+
+.contact-section {
+    padding-left: 60px;
+    padding-right: 60px;
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+    top: -300px;
+    z-index: 777;
+    font-family: v.$font-family-title;
+    color: v.$color-text;
+    max-width: 650px;
+    height: 450px;
+    margin: 0 auto;
+    background-color: v.$color-white;
+    // &__container {
+    //     max-width: 1200px;
+    //     margin: 0 auto;
+    // }
+
+    // &__header {
+    //     text-align: center;
+    //     margin-bottom: 50px;
+    //     @include m.flex(center, center);
+    //     flex-direction: column;
+    // }
+
+    &__divider {
+        width: 60px;
+        border: 1px solid v.$color-text;
+        margin-bottom: 20px;
+    }
+
+    &__title {
+        font-size: 32px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    &__content {
+        display: flex;
+        justify-content: center;
+        gap: 80px;
+        max-width: 900px;
+        margin: 0 auto;
+        flex-wrap: wrap;
+
+        @media (max-width: 768px) {
+            gap: 40px;
+            flex-direction: column;
+        }
+    }
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    flex: 1;
+
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        font-size: 14px;
+        color: v.$color-text;
+    }
+
+    &__icon {
+        color: v.$color-violet;
+        font-size: 18px;
+        width: 24px;
+        fill: v.$color-violet;
+        text-align: center;
+    }
+
+    &__text {
+        line-height: 1.4;
+    }
+}
+
+.contact-form {
+    flex: 1.2;
+    min-width: 300px;
+
+    &__group {
+        margin-bottom: 30px;
+        position: relative;
+    }
+
+    &__input {
+        @include m.input-reset;
+        width: 100%;
+        border-bottom: 1px solid v.$border-color;
+        padding: 10px 0;
+        font-size: 16px;
+        color: v.$color-text;
+        transition: border-color 0.3s ease;
+
+        &::placeholder {
+            color: v.$text-gray;
+        }
+
+        &:focus {
+            border-bottom-color: v.$color-violet;
+        }
+
+        // Модификатор ошибки
+        &--invalid {
+            border-bottom-color: v.$error-color;
+
+            &+.contact-form__error {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+        }
+    }
+
+    &__error {
+        color: v.$error-color;
+        font-size: 11px;
+        position: absolute;
+        bottom: -18px;
+        left: 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-5px);
+        transition: all 0.2s ease;
+    }
+
+    &__submit {
+        @include m.input-reset;
+        border: 1px solid v.$color-text;
+        padding: 12px 45px;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        cursor: pointer;
+        float: right;
+        transition: all 0.3s ease;
+        margin-top: 10px;
+
+        &:hover {
+            background-color: v.$color-text;
+            color: v.$color-white;
+        }
+
+        @media (max-width: 480px) {
+            width: 100%;
+            float: none;
+        }
+    }
 }

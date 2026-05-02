@@ -5,8 +5,13 @@ $font-family-main: 'Open Sans', sans-serif;
 $font-size: 18px;
 $color-white: #ffffff;
 $color-text:#2C4058;
+$text-gray: rgba(75, 85, 98,0.5);
+$border-color: #ccc;
 $color-blue:#55B7FF;
 $color-violet:#7E5AFF;
+
+$error-color:#e74c3c;
+
 $background-white:#ffddff;
 $backgorund-gradient:linear-gradient(to left, $color-violet, $color-blue);
 $backgorund-news:linear-gradient(#24CCFA, #3C7FD4);

@@ -24,3 +24,8 @@
     top: $top;
     left: $left;
 }
+@mixin input-reset {
+  border: none;
+  outline: none;
+  background: none;
+}
