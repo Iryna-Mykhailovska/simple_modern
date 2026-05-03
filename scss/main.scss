@@ -677,8 +677,16 @@ a {
         margin: 0 auto;
         padding-top: 203px;
         padding-bottom: 234px;
+        &-wrapper{
+            font-family: v.$font-family-title;
+            font-size: 14px;
+            font-weight: 400;
+            color: v.$color-white;
+        }
     }
-
+&__copyright{
+    margin-top: 41px;
+}
     &__social {
         &-link {
             display: inline-block;

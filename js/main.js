@@ -1,4 +1,5 @@
 'use strict';
+
 // --------------------MAP
 // 1. Инициализируем карту, указываем ID блока и координаты центра [широта, долгота], а также масштаб (13)
 var map = L.map('map').setView([50.069358, 36.204282], 13); 
@@ -62,9 +63,21 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(item);
   });
 });
-let lightbox = new SimpleLightbox('.lighbox a');
+
+
+
+let lightbox = new SimpleLightbox('.lightbox a', { 
+    /* сюда можно добавить настройки, например: */
+    alertError: false,
+    captionDelay: 250
+});
+
 lightbox.on('show.simplelightbox', function () {
-	// do something…
+    console.log('Галерея открыта');
+});
+
+lightbox.on('error.simplelightbox', function (e) {
+    console.log('Ошибка:', e);
 });
 
 lightbox.on('error.simplelightbox', function (e) {

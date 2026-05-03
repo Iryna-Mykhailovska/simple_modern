@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="./scss/simple-lightbox.min.css">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="icon" type="image/x-icon" href="./assets/img/favicon.png">
 
@@ -228,7 +229,7 @@
         <section id="gallery" class="gallery">
             <div class="container">
                 <h2 class="gallery_title title">GALLERY</h2>
-                <div class="lighbox gallery__grid">
+                <div class="lightbox gallery__grid">
                     <a class="gallery__item--big" href="./assets/img/gallery_1.jpg"><img
                             src="./assets/img/thumbs/thumb1.jpg" alt="" title="" /></a>
                     <a class="gallery__item" href="./assets/img/gallery_2.jpg"><img src="./assets/img/thumbs/thumb2.jpg"
@@ -243,14 +244,14 @@
                 </div>
                 <button class="gallery__btn btn">SEE MORE</button>
             </div>
-            </div>
+
         </section>
         <section class="map">
             <div id="map" style="height: 700px;"></div>
         </section>
     </main>
     <footer class="footer">
-        <section class="contact-section">
+        <section id="contact" class="contact-section">
             <div class="contact-section__container">
                 <h2 class="contact-section__title title">GET IN TOUCH</h2>
                 <div class="contact-section__content">
@@ -306,11 +307,14 @@
         </section>
         <!-- <div class="container"> -->
         <div class="footer__container">
-            <a href="#" class="footer__logo logo">
-                <svg width="241" height="54" class="logo__icon">
-                    <use xlink:href="./assets/img/svg/Logo.svg"></use>
-                </svg>
-            </a>
+            <div class="footer__container-wrapper">
+                <a href="#" class="footer__logo logo">
+                    <svg width="241" height="54" class="logo__icon">
+                        <use xlink:href="./assets/img/svg/Logo.svg"></use>
+                    </svg>
+                </a>
+                <p class="footer__copyright">Copyrights © 2026 Montichello</p>
+            </div>
             <ul class="footer__social social">
                 <li class="footer__social-item"><a href="#" class="footer__social-link">
                         <svg width="10" height="18" class="footer__social-icon">
@@ -332,6 +336,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="js/slick-slider.js"></script>
+    <script src="./js/simple-lightbox.min.js"></script>
     <script src="js/main.js"></script>
 
 </body>

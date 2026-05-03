@@ -654,6 +654,15 @@ a {
   padding-top: 203px;
   padding-bottom: 234px;
 }
+.footer__container-wrapper {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #ffffff;
+}
+.footer__copyright {
+  margin-top: 41px;
+}
 .footer__social-link {
   display: inline-block;
   width: 40px;
