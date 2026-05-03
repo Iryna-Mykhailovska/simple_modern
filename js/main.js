@@ -66,10 +66,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-let lightbox = new SimpleLightbox('.lightbox a', { 
-    /* сюда можно добавить настройки, например: */
+// Инициализируем через переменную, чтобы она была доступна в области видимости
+const lightbox = new SimpleLightbox('#gallery-grid a', { 
     alertError: false,
-    captionDelay: 250
+    captionDelay: 250,
+    // Добавьте эту опцию, она помогает при динамической подгрузке
+    uniqueImages: false 
 });
 
 lightbox.on('show.simplelightbox', function () {
@@ -83,8 +85,38 @@ lightbox.on('error.simplelightbox', function (e) {
 lightbox.on('error.simplelightbox', function (e) {
 	console.log(e); // some usefull information
 });
+const btnMore = document.querySelector('.gallery__btn');
+const galleryGrid = document.querySelector('#gallery-grid'); // Это наш основной контейнер с классом .lightbox
 
-// --------------Buttons------
+btnMore.addEventListener('click', () => {
+    // Вставляем ТОЛЬКО ссылки. 
+    // Весь блок сразу встанет в сетку гридов, так как galleryGrid уже имеет стили грида.
+    const newItems = `
+        <a class="gallery__item--big" href="./assets/img/gallery_1.jpg">
+            <img src="./assets/img/thumbs/thumb1.jpg" alt="" />
+        </a>
+        <a class="gallery__item" href="./assets/img/gallery_2.jpg">
+            <img src="./assets/img/thumbs/thumb2.jpg" alt="" title="Beautiful Image" />
+        </a>
+        <a class="gallery__item" href="./assets/img/gallery_3.jpg">
+            <img src="./assets/img/thumbs/thumb3.jpg" alt="" title="Beautiful Image" />
+        </a>
+        <a class="gallery__item" href="./assets/img/gallery_4.jpg">
+            <img src="./assets/img/thumbs/thumb4.jpg" alt="" title="Beautiful Image" />
+        </a>
+        <a class="gallery__item" href="./assets/img/gallery_5.jpg">
+            <img src="./assets/img/thumbs/thumb5.jpg" alt="" title="Beautiful Image" />
+        </a>
+    `;
+
+    // Вставляем контент в основной контейнер
+    galleryGrid.insertAdjacentHTML('beforeend', newItems);
+
+   // Даем браузеру микро-паузу, чтобы отрисовать DOM, прежде чем рефрешить
+    setTimeout(() => {
+        lightbox.refresh();
+    }, 10);
+});// --------------Buttons------
 // const buttonMore = document.getElementById('project_1');
 // buttonMore.addEventListener('click', () => {
 
