@@ -90,50 +90,6 @@
   -webkit-font-smoothing: antialiased;
 }
 
-.slider_news {
-  position: relative;
-}
-.slider_news__content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  text-align: center;
-  color: #2C4058;
-}
-.slider_news-slide {
-  position: relative;
-  background-color: #ffffff;
-  width: 370px;
-  height: 514px;
-  padding: 0;
-}
-.slider_news-slide__img {
-  object-fit: cover;
-  width: 370px;
-  height: 240px;
-}
-
-.slick-prev {
-  left: -60px;
-}
-
-.slick-next {
-  right: -60px;
-}
-
-.slick-prev:before,
-.slick-next:before {
-  font-family: "slick";
-  font-size: 20px;
-  line-height: 1;
-  opacity: 0.75;
-  color: #ffffff;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 @font-face {
   font-family: "Source Sans Pro";
   src: url("../assets/fonts/SourceSansPro/SourceSansPro-Regular.woff") format("woff"), url("../assets/fonts/SourceSansPro/SourceSansPro-Regular.woff2") format("woff2");
@@ -471,8 +427,9 @@ a {
 .news {
   background-image: url(../assets/img/news_background.png);
   background-position: center;
-  padding-top: 150px;
-  padding-bottom: 120px;
+  background-size: cover;
+  padding: 150px 0 120px;
+  position: relative;
 }
 .news_title {
   color: #ffffff;
@@ -490,11 +447,146 @@ a {
   background: #ffffff;
 }
 
-.section-gallery {
+.slider-news-container {
+  position: relative;
+  padding: 0 60px;
+}
+.slider_news-slide {
+  background-color: #ffffff;
+  margin: 0 15px;
+  text-align: left;
+  height: 540px;
+}
+.slider_news-slide__img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+}
+.slider_news-slide__text-content {
+  padding: 30px 20px;
+  height: 274px;
+}
+.slider_news-slide__title {
+  font-size: 22px;
+  font-weight: 700;
+  text-align: left;
+  line-height: 1;
+  margin-bottom: 15px;
+}
+.slider_news-slide__descr {
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 39px;
+}
+.slider_news-slide__author {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.slider_news-slide__author-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.slider_news-slide__author-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.slider_news-slide__author-name {
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+}
+.slider_news-slide__author-date {
+  color: #55B7FF;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.news .slick-arrow {
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  z-index: 10;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 0;
+  transition: all 0.3s ease;
+}
+.news .slick-arrow::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #fff;
+  border-right: 2px solid #fff;
+  opacity: 1;
+}
+.news .slick-arrow:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+.news .slick-prev {
+  left: -50px;
+}
+.news .slick-prev::before {
+  transform: translate(-30%, -50%) rotate(-135deg);
+}
+.news .slick-next {
+  right: -50px;
+}
+.news .slick-next::before {
+  transform: translate(-70%, -50%) rotate(45deg);
+}
+
+.news .slick-dots {
+  position: relative;
+  bottom: 0;
+  margin-top: 60px;
+  display: flex !important;
+  justify-content: center;
+  flex-direction: row;
+  gap: 15px;
+  width: 100%;
+}
+.news .slick-dots li {
+  margin: 0;
+  width: 10px;
+  height: 10px;
+}
+.news .slick-dots li button {
+  width: 10px;
+  height: 10px;
+  border: 1px solid #fff;
+  background: transparent;
+  border-radius: 50%;
+}
+.news .slick-dots li button:before {
+  display: none;
+}
+.news .slick-dots li.slick-active button {
+  background: #fff;
+}
+
+.gallery {
   padding-top: 150px;
   padding-bottom: 150px;
 }
-
 .gallery_title {
   position: relative;
   margin-bottom: 90px;

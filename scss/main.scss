@@ -112,10 +112,11 @@ a {
 
             &:hover,
             &:focus {
-                &::before{
+                &::before {
                     border: 1px solid v.$color-text;
                     background: v.$color-text;
                 }
+
                 .header__menu-link {
                     color: v.$color-text;
                 }
@@ -241,65 +242,7 @@ a {
     }
 }
 
-// .projects {
-//     margin-top: 100px;
-//     padding-bottom: 150px;
-//     position: relative;
 
-//     &-blue {
-//         position: absolute;
-//         top: 174px;
-
-//         left: 0;
-//         width: 585px;
-//         height: 470px;
-//         background-color: #55B7FF;
-//     }
-
-//    
-
-//     &_list {
-//         @include m.flex(space-between, center);
-//         flex-wrap: wrap;
-//         gap: 120px;
-//     }
-
-//     &-item {
-//         @include m.flex(space-between, center);
-//         gap: 64px;
-//         z-index: 99;
-//         position: relative;
-//         top: 100px;
-
-//         &:nth-child(even) {
-//             flex-direction: row-reverse;
-//         }
-//     }
-
-//     &-content {
-//         font-family: v.$font-family-main;
-//         width: 470px;
-//         height: 350px;
-
-//         &-title {
-//             font-size: 22px;
-//             text-align: left;
-//             font-weight: 400;
-//         }
-
-//         &-subtitle {
-//             font-size: 44px;
-//             text-align: left;
-//             font-weight: 700;
-//             padding-bottom: 19px;
-//         }
-
-//         &-text {
-//             line-height: 1.667;
-//             margin-bottom: 40px;
-//         }
-
-// }
 .projects {
     margin-top: 100px;
     padding-bottom: 150px;
@@ -444,16 +387,17 @@ a {
 }
 
 .news {
-    // background: v.$backgorund-news;
     background-image: url(../assets/img/news_background.png);
     background-position: center;
-    padding-top: 150px;
-    padding-bottom: 120px;
+    background-size: cover;
+    padding: 150px 0 120px;
+    position: relative; // Важно для позиционирования стрелок
 
     &_title {
         color: v.$color-white;
         margin-bottom: 90px;
         position: relative;
+        // text-align: center;
 
         &::before {
             content: '';
@@ -466,15 +410,198 @@ a {
             background: v.$color-white;
         }
     }
+
 }
 
-.section-gallery {
-    padding-top: 150px;
-    padding-bottom: 150px;
+// Контейнер для слайдера, чтобы стрелки не улетали за края экрана
+.slider-news {
+    &-container {
+        position: relative;
+        padding: 0 60px; // Место для стрелок
+    }
+
+    &-slide {}
+}
+
+// Стили карточки
+.slider_news-slide {
+    background-color: v.$color-white;
+    margin: 0 15px; // Отступы между карточками
+    text-align: left;
+    height: 540px; // Пусть высота зависит от контента
+
+    &__img {
+        width: 100%;
+        height: 240px;
+        object-fit: cover;
+        display: block;
+    }
+
+    &__text-content {
+        padding: 30px 20px;
+        height: 274px;
+    }
+
+    &__title {
+        font-size: 22px;
+        font-weight: 700;
+        text-align: left;
+        line-height: 1;
+        margin-bottom: 15px;
+
+    }
+
+    &__descr {
+        font-family: v.$font-family-main;
+        font-size: 18px;
+        font-weight: 400;
+        // color: #4B5562;
+        line-height: 1;
+        margin-bottom: 39px;
+    }
+
+    // Блок с автором
+    &__author {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        &-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        &-wrapper {
+            display: flex;
+            // flex-wrap: wrap;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        &-name {
+            // color: #2C4058;
+            font-family: v.$font-family-title;
+            text-transform: uppercase;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: 0;
+        }
+
+        &-date {
+            color: v.$color-blue;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: 0;
+        }
+
+    }
+}
+
+// Стили стрелок 
+.news {
+
+    .slick-arrow {
+        width: 50px;
+        height: 50px;
+        background: transparent; // Прозрачный фон внутри
+        border: 1px solid rgba(255, 255, 255, 0.5); // Тот самый белый ободок
+        border-radius: 50%;
+        z-index: 10;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        font-size: 0;
+        transition: all 0.3s ease;
+
+        // Рисуем белую стрелочку внутри
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 10px;
+            height: 10px;
+            border-top: 2px solid #fff; // Белый цвет стрелочки
+            border-right: 2px solid #fff;
+            opacity: 1;
+        }
+
+        &:hover {
+            border-color: #fff; // Ободок становится ярче при наведении
+            background: rgba(255, 255, 255, 0.1); // Легкий блик при наведении
+        }
+    }
+
+    .slick-prev {
+        left: -50px;
+
+        &::before {
+            // Центрируем и поворачиваем для направления влево
+            transform: translate(-30%, -50%) rotate(-135deg);
+        }
+    }
+
+    .slick-next {
+        right: -50px;
+
+        &::before {
+            // Центрируем и поворачиваем для направления вправо
+            transform: translate(-70%, -50%) rotate(45deg);
+        }
+    }
+
+    // .slick-prev {
+    //     left: -50px;
+    // }
+
+    // .slick-next {
+    //     right: -50px;
+    // }
+}
+
+// Центрируем dots внизу
+.news .slick-dots {
+    position: relative;
+    bottom: 0;
+
+    margin-top: 60px;
+    display: flex !important;
+    justify-content: center;
+    flex-direction: row; // Горизонтально
+    gap: 15px;
+    width: 100%;
+
+    li {
+        margin: 0;
+        width: 10px;
+        height: 10px;
+
+        button {
+            width: 10px;
+            height: 10px;
+            border: 1px solid #fff;
+            background: transparent;
+            border-radius: 50%;
+
+            &:before {
+                display: none;
+            }
+        }
+
+        &.slick-active button {
+            background: #fff;
+        }
+    }
 }
 
 .gallery {
 
+    padding-top: 150px;
+    padding-bottom: 150px;
 
     &_title {
         position: relative;

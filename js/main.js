@@ -62,17 +62,15 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(item);
   });
 });
+let lightbox = new SimpleLightbox('.lighbox a');
+lightbox.on('show.simplelightbox', function () {
+	// do something…
+});
 
-// $(document).ready(function(){
-//   $('.slider').slick({
-//     dots: true,
-//     infinite: true,
-//     speed: 500,
-//     fade: true,
-//     cssEase: 'linear',
-//     autoplay: true
-//   });
-// });
+lightbox.on('error.simplelightbox', function (e) {
+	console.log(e); // some usefull information
+});
+
 // --------------Buttons------
 // const buttonMore = document.getElementById('project_1');
 // buttonMore.addEventListener('click', () => {
