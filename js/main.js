@@ -117,12 +117,29 @@ btnMore.addEventListener('click', () => {
         lightbox.refresh();
     }, 10);
 });// --------------Buttons------
-// const buttonMore = document.getElementById('project_1');
-// buttonMore.addEventListener('click', () => {
+const buttonMoreProject1 = document.getElementById('project_1');
+let project1Details = document.getElementById('project_1_details');
+buttonMoreProject1.addEventListener('click', () => {
+ const details = `
+        
+        <p>More details about project 1</p>
+    `;
+        project1Details.insertAdjacentHTML('beforeend', details);
+        buttonMoreProject1.style.display = 'none';
 
-//   alert('More details about project 1');
-// });
+});
 
+const buttonMoreProject2 = document.getElementById('project_2');
+let project2Details = document.getElementById('project_2_details');
+buttonMoreProject2.addEventListener('click', () => {
+ const details = `
+        
+        <p>More details about project 2</p>
+    `;
+        project2Details.insertAdjacentHTML('beforeend', details);
+        buttonMoreProject2.style.display = 'none';
+
+});
 // ==============Form validation
 document.getElementById('feedbackForm').addEventListener('submit', function(e) {
   e.preventDefault();
