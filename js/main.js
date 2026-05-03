@@ -22,6 +22,22 @@ var marker = L.marker([50.069358, 36.204282], { icon: myCustomIcon }).addTo(map)
 marker.bindPopup("<b>Привет!</b><br>Я здесь!").openPopup();
 
 
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start' // можна змінити на 'center' або 'end'
+            });
+        }
+    });
+});
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const options = {

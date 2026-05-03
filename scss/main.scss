@@ -8,6 +8,10 @@
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: v.$font-family-main;
@@ -18,13 +22,11 @@ body {
 main {
     background-color: v.$color-white;
     font-family: v.$font-family-main;
-
 }
 
 ul,
 ol {
     list-style: none;
-
 }
 
 a {
@@ -53,6 +55,18 @@ a {
 .social {
     @include m.flex(space-between, center);
     gap: 20px;
+}
+
+.icon {
+    position: absolute;
+    @include m.pos_center(50%, 50%);
+    fill: v.$color-white;
+
+    &:hover,
+    &:focus {
+        cursor: url('../assets/img/cursor.png'), pointer;
+        fill: v.$color-text;
+    }
 }
 
 .header {
@@ -85,15 +99,26 @@ a {
             &::before {
                 content: "";
                 position: absolute;
-                left: -14px;
+                left: -24px;
                 /* Смещаем влево от текста */
-                top: 50%;
+                top: 61%;
                 transform: translateY(-50%);
                 width: 9px;
                 height: 9px;
-                border: 1px solid #ffffff;
+                border: 1px solid v.$color-white;
                 border-radius: 50%;
                 background: transparent;
+            }
+
+            &:hover,
+            &:focus {
+                &::before{
+                    border: 1px solid v.$color-text;
+                    background: v.$color-text;
+                }
+                .header__menu-link {
+                    color: v.$color-text;
+                }
             }
         }
 
@@ -127,17 +152,40 @@ a {
             }
         }
 
-        &-icon {
-            position: absolute;
-            @include m.pos_center(50%, 50%);
-            fill: v.$color-white;
 
-        }
 
     }
 
 }
 
+.slider {
+    &__scroll {
+        &-link {
+            border: 1px solid v.$color-white;
+            border-radius: 50%;
+            display: block;
+            width: 40px;
+            height: 40px;
+            z-index: 100;
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            &:hover,
+            &:focus {
+                cursor: url('../assets/img/cursor.png'), pointer;
+                border: 1px solid v.$color-text;
+
+                .slider__scroll-icon {
+                    fill: v.$color-text;
+                }
+            }
+        }
+
+
+    }
+}
 
 .burger {
     display: none;
@@ -503,6 +551,38 @@ a {
         padding-top: 203px;
         padding-bottom: 234px;
     }
+
+    &__social {
+        &-link {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            background-color: transparent;
+            position: relative;
+
+            &:hover,
+            &:focus {
+                cursor: url('../assets/img/cursor.png'), pointer;
+                border: 1px solid v.$color-text;
+                // transform: scale(1.1);
+
+                .footer__social-icon {
+                    fill: v.$color-text;
+                    // transform: scale(1.1);
+                }
+            }
+        }
+
+        &-icon {
+            position: absolute;
+            @include m.pos_center(50%, 50%);
+            fill: v.$color-white;
+
+        }
+
+    }
 }
 
 .contact-section {
@@ -516,7 +596,7 @@ a {
     z-index: 777;
     font-family: v.$font-family-title;
     color: v.$color-text;
-    
+
     max-width: 650px;
     height: 360px;
     margin: 0 auto;

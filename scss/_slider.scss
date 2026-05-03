@@ -1,4 +1,5 @@
 // --------------------- Custom Classes ---------------------
+@use 'vars' as v;
 
 .slider {
     position: relative;
@@ -40,74 +41,75 @@
     }
 }
 
+// Общий сброс для всех слайдеров, чтобы точки вели себя предсказуемо
 .slick-dots {
-    // padding-left: 0;
-    // list-style: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 40px;
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex; // Используем флекс для управления направлением
+}
 
-    li {
-        position: relative;
-        display: inline-block;
-        width: 10px;
-        height: 10px;
-        // margin: 0 5px;
-        padding: 0;
-        cursor: pointer;
+// СЕКЦИЯ HEADER: точки вертикально справа
+.header {
+    .slick-dots {
+        position: absolute;
+        right: 52px; // Вот здесь регулируйте отступ от правого края экрана
+        top: 50%;
+        transform: translateY(-50%);
+        flex-direction: column; // Делаем их в столбик
+        gap: 40px;
+        z-index: 10;
+        width: auto; // Чтобы не растягивались на всю ширину
 
-        &.slick-active {
+        li {
+            position: relative;
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+
+            padding: 0;
+            cursor: url('../assets/img/cursor.png'), pointer;
+
+            &.slick-active {
+                button {
+                    background-color: #fff;
+
+                    &:before {
+                        opacity: .75;
+                        color: white;
+
+                    }
+                }
+            }
+
             button {
-                background-color: #fff;
+                font-size: 0;
+                border: 1px solid #ffffff;
+                color: #fff;
+                width: 10px;
+                height: 10px;
+                padding: 0;
+                border-radius: 50%;
+
+                cursor: url('../assets/img/cursor.png'), pointer;
 
                 &:before {
-                    opacity: .75;
-                    color: white;
-
+                    font-family: 'slick';
+                    font-size: 6px;
+                    line-height: 10px;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 10px;
+                    height: 10px;
+                    content: '';
+                    text-align: center;
+                    color: transparent;
+                    -webkit-font-smoothing: antialiased;
                 }
             }
         }
-
-        button {
-            font-size: 0;
-            // background: #39575196;
-            border: 1px solid #ffffff;
-            color: #fff;
-            width: 10px;
-            height: 10px;
-            padding: 0;
-            border-radius: 50%;
-            // box-shadow: 0 0 6px 0px #4e6a6c;
-            cursor: pointer;
-
-            &:before {
-                font-family: 'slick';
-                font-size: 6px;
-                line-height: 10px;
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 10px;
-                height: 10px;
-                content: '';
-                text-align: center;
-                // opacity: .25;
-                color: transparent;
-                -webkit-font-smoothing: antialiased;
-            }
-        }
     }
-
-    // .slick-dots li.slick-active button:before{
-
-    // }
-
-
 }
 
 // ----------------slider_news------------------
@@ -121,14 +123,18 @@
         transform: translate(-50%, -50%);
         z-index: 2;
         text-align: center;
-        color: #fff;
-        padding: 24px;
+        color: v.$color-text;
+        // padding: 24px;
         // background: #546a62b9;
         // border-radius: 20px;
     }
 
     &-slide {
         position: relative;
+        background-color: v.$color-white;
+        width: 370px;
+        height: 514px;
+        padding: 0;
         // height: 100vh;
 
         // &::before {
@@ -185,12 +191,21 @@
 //     left: 30px;
 
 // }
+.slick-prev {
+    left: -60px;
+}
 
-// .slick-next {
-//     left: none;
-//     right: 30px;
+.slick-next {
+    right: -60px;
+}
 
-//     &::before {
-//         content: ">";
-//     }
-// }
+.slick-prev:before,
+.slick-next:before {
+    font-family: 'slick';
+    font-size: 20px;
+    line-height: 1;
+    opacity: .75;
+    color: v.$color-white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
