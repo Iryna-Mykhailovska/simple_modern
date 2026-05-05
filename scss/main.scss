@@ -8,6 +8,10 @@
     padding: 0;
 }
 
+// body, html {
+//     overflow-x: hidden;
+//     width: 100%;
+// }
 html {
     scroll-behavior: smooth;
 }
@@ -36,6 +40,10 @@ a {
 .container {
     max-width: v.$width-container;
     margin: 0 auto;
+  @include m.tablet{
+        max-width: v.$width-container-tablet;
+    }
+    
 }
 
 .title {
@@ -69,15 +77,26 @@ a {
     }
 }
 
+.logo {
+    width: 241px;
+    height: 54px;
+   
+}
+
 .header {
     position: relative;
-    background: v.$backgorund-gradient;
+    background: v.$background-gradient;
 
     &__container {
         @include m.flex(space-between, center);
-        z-index: 10;
-
+         z-index: 777;
+        max-width: 100%;
         position: absolute;
+
+        @media (max-width: 1024px) {
+            flex-wrap: wrap; // Позволит элементам перестроиться, если им тесно
+            gap: 15px; // Добавит отступ между nav и social, если они встанут друг под друга
+        }
     }
 
     &__nav {
@@ -85,12 +104,30 @@ a {
         margin-top: 53px;
         margin-bottom: 53px;
         padding-right: 110px;
+
+        @media (max-width: 1024px) {
+            padding-right: 30px;
+        }
     }
 
     &__menu {
         @include m.flex(space-between, center);
         gap: 70px;
+
         padding-left: 144px;
+
+        @media (max-width: 1024px) {
+            gap: 30px;
+            padding-left: 50px;
+        }
+               @media (max-width: 922px) {
+            gap: 20px;
+            padding-left: 30px;
+        }
+          @media (max-width: 768px) {
+            display: none;
+          }
+
 
         &-item {
             position: relative;
@@ -108,6 +145,10 @@ a {
                 border: 1px solid v.$color-white;
                 border-radius: 50%;
                 background: transparent;
+
+                @media (max-width: 1024px) {
+                    left: -12px;
+                }
             }
 
             &:hover,
@@ -141,7 +182,11 @@ a {
             border: 1px solid rgba(255, 255, 255, 0.4);
             background-color: transparent;
             position: relative;
-
+@media (max-width:768px) {
+    width: 30px;
+    height: 30px;
+    
+}
             &:hover,
             &:focus {
                 cursor: url('../assets/img/cursor.png'), pointer;
@@ -158,36 +203,6 @@ a {
     }
 
 }
-
-.slider {
-    &__scroll {
-        &-link {
-            border: 1px solid v.$color-white;
-            border-radius: 50%;
-            display: block;
-            width: 40px;
-            height: 40px;
-            z-index: 100;
-            position: absolute;
-            bottom: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-
-            &:hover,
-            &:focus {
-                cursor: url('../assets/img/cursor.png'), pointer;
-                border: 1px solid v.$color-text;
-
-                .slider__scroll-icon {
-                    fill: v.$color-text;
-                }
-            }
-        }
-
-
-    }
-}
-
 .burger {
     display: none;
 
@@ -222,7 +237,7 @@ a {
             top: -3px;
             width: 34px;
             height: 2px;
-            background-color: v.$color-violet;
+            background-color: v.$color-white;
 
             &::before,
             &::after {
@@ -241,6 +256,36 @@ a {
         }
     }
 }
+.slider {
+    &__scroll {
+        &-link {
+            border: 1px solid v.$color-white;
+            border-radius: 50%;
+            display: block;
+            width: 40px;
+            height: 40px;
+            z-index: 100;
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            &:hover,
+            &:focus {
+                cursor: url('../assets/img/cursor.png'), pointer;
+                border: 1px solid v.$color-text;
+
+                .slider__scroll-icon {
+                    fill: v.$color-text;
+                }
+            }
+        }
+
+
+    }
+}
+
+
 
 
 .projects {
@@ -309,8 +354,10 @@ a {
     }
 
     &__image-wrapper {
+        width: 100%;
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
         gap: 70px;
         flex: 1;
         // Начальное состояние для анимации
@@ -619,72 +666,41 @@ a {
         }
     }
 
-    // &__grid {
-    //     display: grid;
-    //     /* Создаем 4 равные колонки и 2 ряда */
-    //     grid-template-columns: repeat(4, 1fr);
-    //     // grid-template-rows: repeat(2, 214px);
-    //     grid-auto-rows: 214px; // Все новые ряды будут по 214px
-    // // gap: 10px;
-    //     /* Высоту можно настроить */
-    //     gap: 10px;
-    //     /* Отступы между фото */
-    //     max-width: 1200px;
-    //     // margin: 0 auto 40px;
-    //     margin-bottom: 60px;
-    // }
 
-    // &__item {
-    //     width: 285px;
-    //     height: 214px;
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 214px;
+        gap: 10px;
+        max-width: 1200px;
+        margin-bottom: 60px;
 
-    //     img {
-    //         width: 100%;
-    //         height: 100%;
-    //         object-fit: cover;
-    //         /* Чтобы фото не деформировались */
-    //         display: block;
-    //     }
-
-    //     /* Большая картинка слева */
-    //     &--big {
-    //         grid-column: 1 / 3;
-    //         /* Занимает 1 и 2 колонки */
-    //         grid-row: 1 / 3;
-    //         /* Занимает 1 и 2 ряды */
-    //         width: 580px;
-    //         height: 438px;
-    //     }
-    // }
-&__grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 214px; 
-    gap: 10px;
-    max-width: 1200px;
-    margin-bottom: 60px;
-}
-
-&__item {
-    // УДАЛЯЕМ width: 285px и height: 214px
-    width: 100%; 
-    height: 100%;
-
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
+        @media (max-width: 992px) {
+            grid-template-columns: repeat(2, 1fr); // Оптимально для планшетов
+        }
     }
 
-    &--big {
-        grid-column: 1 / 3;
-        grid-row: span 2; // Используем span 2 вместо 1/3, так чище
-        // УДАЛЯЕМ width: 580px и height: 438px
+    &__item {
+        // УДАЛЯЕМ width: 285px и height: 214px
         width: 100%;
         height: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        &--big {
+            grid-column: 1 / 3;
+            grid-row: span 2; // Используем span 2 вместо 1/3, так чище
+            // УДАЛЯЕМ width: 580px и height: 438px
+            width: 100%;
+            height: 100%;
+        }
     }
-}
+
     &__btn {
         padding-left: 57px;
         padding-right: 57px;
@@ -697,26 +713,37 @@ a {
 
 }
 
+#map {
+    height: 700px;
+
+    @media (max-width: 992px) {
+        height: 350px;
+    }
+}
+
 .footer {
-    background: v.$backgorund-gradient;
+    background: v.$background-gradient;
     position: relative;
 
     &__container {
-        @include m.flex(space-between, center);
+        @include m.flex(space-between, start);
         max-width: 770px;
         margin: 0 auto;
         padding-top: 203px;
         padding-bottom: 234px;
-        &-wrapper{
+
+        &-wrapper {
             font-family: v.$font-family-title;
             font-size: 14px;
             font-weight: 400;
             color: v.$color-white;
         }
     }
-&__copyright{
-    margin-top: 41px;
-}
+
+    &__copyright {
+        margin-top: 41px;
+    }
+
     &__social {
         &-link {
             display: inline-block;
@@ -766,23 +793,12 @@ a {
     height: 360px;
     margin: 0 auto;
     background-color: v.$color-white;
-    // &__container {
-    //     max-width: 1200px;
-    //     margin: 0 auto;
-    // }
 
-    // &__header {
-    //     text-align: center;
-    //     margin-bottom: 50px;
-    //     @include m.flex(center, center);
-    //     flex-direction: column;
-    // }
-
-    // &__divider {
-    //     width: 60px;
-    //     border: 1px solid v.$color-text;
-    //     margin-bottom: 20px;
-    // }
+    @media (max-width: 992px) {
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 50px;
+    }
 
     &__title {
         font-size: 44px;
@@ -909,7 +925,8 @@ a {
         font-weight: 400;
         letter-spacing: 0;
         cursor: pointer;
-        float: right;
+        // float: right;
+        margin-left: auto;
         transition: all 0.3s ease;
         // margin-top: 10px;
 

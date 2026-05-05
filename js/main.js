@@ -20,7 +20,7 @@ var myCustomIcon = L.icon({
 var marker = L.marker([50.069358, 36.204282], { icon: myCustomIcon }).addTo(map);
 
 // 4. Добавляем всплывающее окно при клике на маркер
-marker.bindPopup("<b>Привет!</b><br>Я здесь!").openPopup();
+// marker.bindPopup("<b>Привет!</b><br>Я здесь!").openPopup();
 
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -177,3 +177,12 @@ function validateEmail(email) {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return re.test(String(email).toLowerCase());
 }
+
+
+
+document.querySelectorAll('*').forEach(el => {
+    if (el.offsetWidth > document.documentElement.offsetWidth) {
+        console.log('Вылетает элемент:', el);
+        el.style.outline = '2px solid red';
+    }
+});

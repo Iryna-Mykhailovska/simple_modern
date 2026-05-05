@@ -29,3 +29,10 @@
   outline: none;
   background: none;
 }
+@mixin tablet {
+    @media screen and (max-width: 992px) { @content; }
+}
+// @include m.tablet { gap: 40px; }
+@mixin mobile {
+    @media screen and (max-width: 992px) { @content; }
+}
